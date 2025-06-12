@@ -4,6 +4,7 @@
 " robertcrummett@robertcrummett.com
 
 set nocompatible
+let g:loaded_netrwPlugin=1
 
 set termguicolors
 filetype plugin indent on
@@ -11,10 +12,11 @@ syntax enable
 set omnifunc=syntaxcomplete#Complete
 
 set timeout timeoutlen=3000 ttimeoutlen=100
+set mouse=a
 
 set textwidth=80
 set complete-=i
-set incsearch
+set hlsearch incsearch
 
 set wildmenu wildoptions=pum
 
