@@ -1,4 +1,4 @@
-" This is my personal vim git wrapper
+" Git command for Vim
 "
 " [Robert] Nate Crummett
 " robertcrummett@robertcrummett.com
@@ -16,8 +16,7 @@ function! s:RunGit(...)
 	else
 		let l:output = systemlist('git ' . l:args)
 		if v:shell_error
-			echohl ErrorMsg | echom 'Git command failed: Git ' . l:args | echohl None
-			return
+			echohl ErrorMsg | echomsg 'Git command failed: Git ' . l:args | echohl None
 		endif
 		call setqflist([], 'r', {'title': 'Git ' . l:args, 'lines': l:output})
 		copen
