@@ -23,6 +23,7 @@ set wildmenu wildoptions=pum
 set autoread
 set history=1000
 set tabpagemax=50
+set belloff=all
 
 set path+=**
 
