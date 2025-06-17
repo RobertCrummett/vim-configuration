@@ -21,15 +21,13 @@ function! s:SendBufferToOllama(model, prompt)
 
 	let l:prompt = expand("My " . l:filetype . " code: ```" . l:buffer . "``` My prompt: " . a:prompt)
 
-	echomsg l:prompt
-
-	" if executable("ollama")
-	" 	terminal
-	" 	call term_sendkeys("", "ollama run " . a:model . "\<cr>")
-	" 	call term_sendkeys("", l:prompt)
-	" else
-	" 	echohl WarningMsg
-	" 	echomsg "`ollama` is not executable, therefore it cannot be queried"
-	" 	echohl None
-	" endif
+	if executable("ollama")
+	 	terminal
+	 	call term_sendkeys("", "ollama run " . a:model . "\<cr>")
+	 	call term_sendkeys("", l:prompt)
+	else
+	 	echohl WarningMsg
+	 	echomsg "`ollama` is not executable, therefore it cannot be queried"
+	 	echohl None
+	endif
 endfunction
