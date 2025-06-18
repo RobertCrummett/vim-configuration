@@ -4,7 +4,6 @@
 " robertcrummett@robertcrummett.com
 
 set nocompatible
-let g:loaded_netrwPlugin=1
 
 set termguicolors
 filetype plugin indent on
