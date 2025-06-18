@@ -26,6 +26,7 @@ set belloff=all
 set path+=**
 
 let mapleader = " "
+let g:claude_api_key = readfile(".claude-api-key")[0]
 
 if executable("rg")
 	set grepprg=rg\ --vimgrep\ --smart-case\ --hidden grepformat=%f:%l:%c:%m
