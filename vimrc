@@ -9,7 +9,6 @@ let g:loaded_netrwPlugin=1
 set termguicolors
 filetype plugin indent on
 syntax enable
-set omnifunc=syntaxcomplete#Complete
 
 set timeout timeoutlen=3000 ttimeoutlen=100
 set mouse=a
@@ -26,6 +25,8 @@ set tabpagemax=50
 set belloff=all
 
 set path+=**
+
+let mapleader = " "
 
 if executable("rg")
 	set grepprg=rg\ --vimgrep\ --smart-case\ --hidden grepformat=%f:%l:%c:%m
