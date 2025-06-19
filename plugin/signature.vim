@@ -3,14 +3,7 @@
 " [Robert] Nate Crummett
 " robertcrummett@robertcrummett.com
 
-function! Fullname()
-	let l:name = "[Robert] Nate Crummett"
-	call append(line("."), l:name)
-endfunction
+let g:fullname = "[Robert] Nate Crummett"
+let g:email = "robertcrummett@robertcrummett.com"
 
-function! Email()
-	let l:email = "robertcrummett@robertcrummett.com"
-	call append(line("."), l:email)
-endfunction
-
-command! Signature call Email() | call Fullname()
+command! Signature execute "normal! O" . g:email . "<C-O>O" . g:fullname . "<C-O>I"
