@@ -33,3 +33,5 @@ if executable("rg")
 endif
 
 autocmd FileType * set formatoptions-=c formatoptions-=r formatoptions-=o formatoptions-=t
+
+colorscheme silkworm
