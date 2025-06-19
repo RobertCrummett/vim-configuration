@@ -3,7 +3,7 @@
 " [Robert] Nate Crummett
 " robertcrummett@robertcrummett.com
 
-command! -nargs=* Colorscheme call <SID>OpenColorschemes(<f-args>)
+command! -nargs=* Colorscheme call <SID>OpenColorscheme(<f-args>)
 
 " Return all of the colorschemes on the runtime path in an alphabetically sorted list
 function! s:GetColorschemes() abort
@@ -21,8 +21,13 @@ function! s:GetColorschemes() abort
     return colorschemes
 endfunction
 
-" Create a `colorscheme` buffer to select colorschemes. Set up mappings for this buffer as well
-function! s:OpenColorschemes() abort
+" Create a `colorscheme` buffer to select colorschemes
+function! s:OpenColorscheme(...) abort
+	if !empty(a:000)
+		execute "colorscheme " . a:000[0]
+		return
+	endif
+
 	let l:colorschemes = s:GetColorschemes()
 
 	execute "silent! new"
