@@ -4,6 +4,7 @@
 " robertcrummett@robertcrummett.com
 
 set nocompatible
+set encoding=utf-8
 
 set termguicolors
 filetype plugin indent on
@@ -39,9 +40,13 @@ set path+=**
 let mapleader = " "
 
 if executable("rg")
-	set grepprg=rg\ --vimgrep\ --smart-case\ --hidden grepformat=%f:%l:%c:%m
+	set grepprg=rg\ --vimgrep\ --smart-case\ --hidden 
+	set grepformat=%f:%l:%c:%m
 endif
 
-autocmd FileType * set formatoptions-=c formatoptions-=r formatoptions-=o formatoptions-=t
+autocmd FileType * set formatoptions-=c 
+	\ | set formatoptions-=r 
+	\ | set formatoptions-=o 
+	\ | set formatoptions-=t
 
-colorscheme silkworm
+colorscheme warm-night

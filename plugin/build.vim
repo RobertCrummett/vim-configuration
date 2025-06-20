@@ -32,7 +32,14 @@ function! GetBuildText(temp, error)
 		execute "cfile " . a:error
 		botright copen
 		wincmd p
-		echomsg "Build errors"
+		redraw
+	endif
+
+	if l:tempfsize > 0 && l:errorfsize > 0
+		execute "cgetfile " . a:temp
+		execute "caddfile " . a:error
+		botright copen
+		wincmd p
 		redraw
 	endif
 
