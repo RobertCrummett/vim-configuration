@@ -30,15 +30,17 @@ function! s:OpenColorscheme(...) abort
 
 	let l:colorschemes = s:GetColorschemes()
 
-	execute "silent! new"
+	execute "silent! botright 5 new"
 	setlocal buftype=nofile bufhidden=wipe nobuflisted noswapfile
 	setlocal nonumber norelativenumber nolist
+	setlocal scrolloff=2
 
 	call setline(1, l:colorschemes)
+	setlocal nomodifiable
 
 	let l:position = index(l:colorschemes, g:colors_name)
 	if l:position != 0
-		execute "silent! normal! gg" . l:position . "j"
+		execute "silent! normal! gg" . l:position . "jzz"
 	endif
 
 	augroup Colorscheme
