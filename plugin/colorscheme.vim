@@ -3,7 +3,7 @@
 " [Robert] Nate Crummett
 " robertcrummett@robertcrummett.com
 
-command! -nargs=* Colorscheme call <SID>OpenColorscheme(<f-args>)
+command! -nargs=* -complete=color Colorscheme call <SID>OpenColorscheme(<f-args>)
 
 " Return all of the colorschemes on the runtime path in an alphabetically sorted list
 function! s:GetColorschemes() abort
