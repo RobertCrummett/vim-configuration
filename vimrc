@@ -9,14 +9,25 @@ set termguicolors
 filetype plugin indent on
 syntax enable
 
-set timeout timeoutlen=3000 ttimeoutlen=100
+set timeout 
+set timeoutlen=3000 
+set ttimeoutlen=100
 set mouse=a
 
 set textwidth=80
 set complete-=i
-set hlsearch incsearch
 
-set wildmenu wildoptions=pum
+augroup vimrc-incsearch-highlight
+	autocmd!
+	autocmd CmdlineEnter /,\? :setlocal hlsearch
+	autocmd CmdlineLeave /,\? :setlocal nohlsearch
+augroup END
+
+set incsearch 
+set smartcase
+
+set wildmenu 
+set wildoptions=pum
 
 set autoread
 set history=1000
@@ -26,7 +37,6 @@ set belloff=all
 set path+=**
 
 let mapleader = " "
-let g:claude_api_key = readfile($HOME . '\vimfiles\.claude-api-key')[0]
 
 if executable("rg")
 	set grepprg=rg\ --vimgrep\ --smart-case\ --hidden grepformat=%f:%l:%c:%m

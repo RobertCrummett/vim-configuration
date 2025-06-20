@@ -3,22 +3,27 @@
 " [Robert] Nate Crummett
 " robertcrummett@robertcrummett.com
 
+if exists('g:colorscheme_loaded')
+	finish
+endif
+let g:colorscheme_loaded=0
+
 command! -nargs=* -complete=color Colorscheme call <SID>OpenColorscheme(<f-args>)
 
 " Return all of the colorschemes on the runtime path in an alphabetically sorted list
 function! s:GetColorschemes() abort
-    let l:colorschemes = []
-    for path in split(&runtimepath, ',')
-        let l:files = glob(path . '/colors/*.vim', 0, 1)
-        for file in l:files
-            let l:name = fnamemodify(file, ':t:r')
-            if !empty(l:name) && index(l:colorschemes, l:name) == -1
-                call add(l:colorschemes, l:name)
-            endif
-        endfor
-    endfor
-    call sort(colorschemes)
-    return colorschemes
+	let l:colorschemes = []
+	for path in split(&runtimepath, ',')
+		let l:files = glob(path . '/colors/*.vim', 0, 1)
+		for file in l:files
+			let l:name = fnamemodify(file, ':t:r')
+			if !empty(l:name) && index(l:colorschemes, l:name) == -1
+				call add(l:colorschemes, l:name)
+			endif
+		endfor
+	endfor
+	call sort(colorschemes)
+	return colorschemes
 endfunction
 
 " Create a `colorscheme` buffer to select colorschemes
@@ -43,7 +48,7 @@ function! s:OpenColorscheme(...) abort
 		execute "silent! normal! gg" . l:position . "jzz"
 	endif
 
-	augroup Colorscheme
+	augroup colorscheme-autocmds
 		autocmd!
 		autocmd BufEnter,BufFilePost <buffer> call s:SetupMappings()
 		" TODO Apply this only when line is changed.
