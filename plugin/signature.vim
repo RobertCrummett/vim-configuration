@@ -3,6 +3,11 @@
 " [Robert] Nate Crummett
 " robertcrummett@robertcrummett.com
 
+if exists('g:signing_loaded')
+	finish
+endif
+let g:signing_loaded=0
+
 let g:fullname = "[Robert] Nate Crummett"
 let g:email = "robertcrummett@robertcrummett.com"
 

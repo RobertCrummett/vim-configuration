@@ -3,6 +3,11 @@
 " [Robert] Nate Crummett
 " robertcrummett@robertcrummett.com
 
+if exists('g:license_loaded')
+	finish
+endif
+let g:license_loaded=0
+
 let g:license_zeroclausebsd = "Permission to use, copy, modify, and/or distribute this software for\n"
 			\ . "any purpose with or without fee is hereby granted.\n"
 			\ . "\n"
