@@ -49,4 +49,6 @@ autocmd FileType * set formatoptions-=c
 	\ | set formatoptions-=o 
 	\ | set formatoptions-=t
 
-colorscheme warm-night
+colorscheme catppuccin_frappe
+
+nnoremap <leader>b :Build<CR>
